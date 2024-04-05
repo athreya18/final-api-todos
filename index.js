@@ -220,7 +220,7 @@ app.delete('/api/todos', async(req,res) => {
 });
 
 //PORT
-const port = 3001
+const port = 8085
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}...`);
     }
