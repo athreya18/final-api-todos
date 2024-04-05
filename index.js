@@ -1,10 +1,13 @@
 const express = require('express');
+const app= express();
+
 const path=require('path');
 require("dotenv").config({
     override:true,
     path:path.join(__dirname, '.env' )
 });
 const { Pool }=require('pg');    
+
 
 
 const poolConfig = {
@@ -39,7 +42,6 @@ pool.connect((err) => {
 });
   
 var cors = require('cors')
-const app= express();
 
 const {v4 : uuidv4} =  require("uuid")
 const Joi= require('joi');
