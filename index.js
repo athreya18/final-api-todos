@@ -8,8 +8,6 @@ require("dotenv").config({
 });
 const { Pool }=require('pg');    
 
-
-
 const poolConfig = {
     user:process.env.USER,
     host:process.env.HOST,
@@ -113,11 +111,11 @@ app.post('/api/todos', async (req, res) => {
         };
 
        return res.status(201).json(insertedTask)
-
     }catch(error){
 
         console.log({error})
         return res.status(500).send('Internal Server Error')
+
     }
 });
 
@@ -220,7 +218,7 @@ app.delete('/api/todos', async(req,res) => {
 });
 
 //PORT
-const port = 8085
+const port = process.env.APP_PORT
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}...`);
     }
