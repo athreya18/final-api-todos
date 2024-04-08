@@ -9,21 +9,21 @@ require("dotenv").config({
 const { Pool }=require('pg');    
 
 const poolConfig = {
-    user:process.env.USER,
-    host:process.env.HOST,
-    database:process.env.DATABASE,
-    password:process.env.PASSWORD,
-    port:process.env.PORT,
-    url: process.env.DB_URL
+    connectionString: process.env.DB_URL,
+    // port: process.env.DB_PORT,
+    // host:process.env.DB_HOST,
+    // password:process.env.DB_PASSWORD,
+    // database:process.env.DB_NAME,
+    // user:process.env.DB_USER
 }
 const pool= new Pool(poolConfig)
 console.log({
-    user:process.env.USER,
+    connectionString: process.env.DB_URL,
+    port: process.env.PORT,
     host:process.env.HOST,
-    database:process.env.DATABASE,
     password:process.env.PASSWORD,
-    port:process.env.PORT,
-    url: process.env.DB_URL
+    database:process.env.DATABASE,
+    user:process.env.USER
 })
 pool.connect((err) => {
     if (err) {
@@ -218,7 +218,7 @@ app.delete('/api/todos', async(req,res) => {
 });
 
 //PORT
-const port = process.env.APP_PORT
+const port = process.env.PORT
 app.listen(port, '0.0.0.0', ()=> {
     console.log(`Listening on port ${port}...`);
     }
