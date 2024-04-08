@@ -219,7 +219,7 @@ app.delete('/api/todos', async(req,res) => {
 
 //PORT
 const port = process.env.APP_PORT
-app.listen(port, ()=> {
+app.listen(port, '0.0.0.0', ()=> {
     console.log(`Listening on port ${port}...`);
     }
 );
